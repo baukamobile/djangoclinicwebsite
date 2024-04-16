@@ -13,6 +13,7 @@ class BlogPost(models.Model):
     content = models.TextField(max_length=1500)
     photo = models.ImageField(upload_to='/yy/mm/dd')
     time_post = models.DateTimeField(auto_created=True)
-    
+    time_delete = models.DateTimeField(auto_created=True)
+
 
 
