@@ -1,0 +1,33 @@
+<!-- {% load static %} -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    {% comment %} <div>
+        {% for i in blog %}
+        {{i.title}}
+        <br>
+        {{i.content}}
+        <br>
+        {{i.photo}}
+        <br>
+        {{i.time_post}}
+        <br>
+        {% endfor %}
+
+        
+    </div> {% endcomment %}
+    <div>
+        <form method="post" action="{% url 'create_new_task' %}">
+            {{form.as_p}}
+            {% csrf_token %} 
+            {{form}}
+        </form>
+    </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import showPost
+from .views import create_new_task
 urlpatterns = [
-    path('', showPost, name='show')
+    path('', create_new_task, name='create_new_task')
 ]
