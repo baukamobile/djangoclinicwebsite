@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
-
+from django.views.generic import TemplateView
 from .forms import BlogPostForm, UploadForm
 from .models import BlogPost
 from .serializers import BlogSerializer
@@ -15,6 +15,7 @@ import ssl
 #         'form':form,
 #         'blog': blog
 #     })
+
 
 
 def create_new_task(request):
@@ -34,11 +35,6 @@ def create_new_task(request):
         'form': form,
     })
 
-def searchItemView(request):
-    pass
-
-def flickr(request):
-    return render(request, 'wg_early_bird_template/flickr.html')
 
 
 def upload(request):
@@ -91,3 +87,7 @@ def blog(request):
 #         return HttpResponse("Email sent successfully")
 #     except Exception as e:
 #         return HttpResponse(f"An error occurred: {str(e)}")
+
+
+def showPage(request):
+    return render(request, 'clinic-website-template/index.html')

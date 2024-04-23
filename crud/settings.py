@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MyCrud',
     'rest_framework',
-    'items',
+
 ]
 
 MIDDLEWARE = [
@@ -127,14 +127,13 @@ GOOGLE_MAPS_API_KEY="AIzaSyCUMw5fUGqRlyCary3PyAyQ4QI8egZFQck"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(
-    BASE_DIR, "MyCrud/static",
-
-    )
+    os.path.join(BASE_DIR, "MyCrud/static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 MEDIA_URL='media/'
 MEDIA_ROOT= BASE_DIR/ 'media'
