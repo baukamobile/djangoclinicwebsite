@@ -10,7 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+import ssl
+
+# Disable SSL certificate verification globally
+ssl_context = ssl.create_default_context()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MyCrud',
     'rest_framework',
+    'items',
 ]
 
 MIDDLEWARE = [
@@ -115,13 +123,37 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+GOOGLE_MAPS_API_KEY="AIzaSyCUMw5fUGqRlyCary3PyAyQ4QI8egZFQck"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(
+    BASE_DIR, "MyCrud/static",
+
+    )
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+MEDIA_URL='media/'
+MEDIA_ROOT= BASE_DIR/ 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER= 'baukabakbegen003@gmail.com'
+EMAIL_HOST_PASSWORD= 'upam kbxb lomv bolc'
+
+#upam kbxb lomv bolc

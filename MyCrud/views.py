@@ -1,6 +1,12 @@
-from django.shortcuts import render, redirect
-from .forms import BlogPostForm
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, HttpResponse
+
+from .forms import BlogPostForm, UploadForm
 from .models import BlogPost
+from .serializers import BlogSerializer
+from django.core.mail import send_mail
+from django.conf import settings
+import ssl
 # Create your views here.
 # def showPost(request):
 #     blog = BlogPost.objects.all()
@@ -23,10 +29,44 @@ def create_new_task(request):
         else:
             print(form.errors)
 
-    return render(request, 'index.html', context={
+    return render(request, 'wg_early_bird_template/index.html', context={
         'task': blog,
         'form': form,
     })
 
+def searchItemView(request):
+    pass
+
+def flickr(request):
+    return render(request, 'wg_early_bird_template/flickr.html')
 
 
+def upload(request):
+    uploadform = UploadForm(request.POST, request.FILES)
+    if request.POST:
+        print(request.FILES)
+        if uploadform.is_valid():
+            uploadform.save()
+    return render(request, 'wg_early_bird_template/upload.html',context={
+        'uploadform': uploadform,
+    })
+
+
+def blog(request):
+    blog = BlogPost.objects.all()
+    serializer = BlogSerializer()
+    return JsonResponse(serializer.data)
+
+def send_email(request):
+    if request.method=='POST':
+        message = request.POST['message']
+        email = request.POST['email']
+        name = request.POST['name']
+        send_mail(
+            'Contact_mail',
+            message,
+            'settings.EMAIL_HOST_USER',
+            [email, 'bauyrzanbakbergen87@gmail.com', 'newnewernewest123@gmail.com'],
+            fail_silently=False
+        )
+        return render(request, 'wg_early_bird_template/index.html')

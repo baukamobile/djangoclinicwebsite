@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Early Bird Portfolio</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Yellowtail|PT+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Javascript
+	================================================== -->
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.tweet.js"></script>
+	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<!--For this page only-->
+	<script type="text/javascript" src="js/jquery.spectragram.min.js"></script>
+
+	<script>
+		///// Instagram Portfolio
+		$(document).ready(function() {
+			jQuery.fn.spectragram.accessData = {
+			    accessToken: '4635644.b1438c1.9f398d04e07b48d1a570a594ab622034',
+			    clientID: 'b1438c1a183c4132b3c61aecc79cee83'
+			};
+
+			$('#instagram').spectragram('getUserFeed',{
+				query: 'swopes',
+			    max:12
+			});
+		});
+	</script>
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+	<div class="container sixteen columns">
+
+		<header>
+			<div class="eight columns heading">
+				<a href="#" class="logo">Early Bird.</a> <span class="subheader"> | Instagram Portfolio Feed</span>
+			</div>
+
+			<nav class="eight columns">
+				<ul>
+					<li>Portfolio Feed:</li>
+					<li><a href="index.html">Hosted</a></li>
+					<li><a href="instagram.html" class="active">Instagram</a></li>
+					<li><a href="flickr.html">Flickr</a></li>
+					<li><a href="dribbble.html">Dribbble</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!--Begin Portfolio Items from Instagram-->
+		<ul id="instagram" class="instagram portfolio-section clearfix"></ul>
+
+			<footer>
+				<div class="three columns avatar">
+					<img src="images/filler/artist-avatar.jpg" class="scale-with-grid">
+				</div>
+				<div class="eight columns bio">
+					<h4>About Me</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula odio in augue suscipit id ornare felis hendrerit. Proin in ligula velit. Duis eros justo, pulvinar nec dignissim vitae, condimentum vitae felis. Pellentesque lobortis suscipit egestas. Maecenas vestibulum turpis et risus tristique convallis.</p>
+				</div>
+				<div class="five columns twitter">
+					<h4>Latest Tweets</h4>
+					<div id="tweet"></div>
+				</div>
+			</footer>
+	</div><!-- container -->
+
+	<script>
+		// Fullscreen Background Image
+		$.backstretch("images/filler/wood-bg.jpg");
+	</script>
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
