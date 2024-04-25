@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MyCrud',
     'rest_framework',
+    'rest_framework.authtoken',
 
 ]
 

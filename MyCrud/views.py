@@ -7,6 +7,9 @@ from .serializers import BlogSerializer
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 import ssl
+from rest_framework.decorators import APIView, api_view
+from rest_framework.permissions import BasePermission
+
 # Create your views here.
 # def showPost(request):
 #     blog = BlogPost.objects.all()
@@ -74,19 +77,19 @@ def blog(request):
 #     ["bauyrzanbakbergen87@gmail.com"],
 #     fail_silently=False,
 # )
-#bauyrzanbakbergen87@gmail.com
-#'bauyrzanbakbergen87@gmail.com', 'newnewernewest123@gmail.com'
-# def send_email_view(request):
-#     subject = 'Hello from MoneyApp'
-#     message = 'You are succefully authenticated!'
-#     sender = 'baukabakbergen003@gmail.com'
-#     recipient_list = ['bauyrzanbakbergen87@gmail.com', 'newnewernewest123@gmail.com']
+# bauyrzanbakbergen87@gmail.com
+# 'bauyrzanbakbergen87@gmail.com', 'newnewernewest123@gmail.com'
+def send_email_view(request):
+    subject = 'Hello from MoneyApp'
+    message = 'This email-send function from django. Did you remember yesterday I cant send it?'
+    sender = 'baukabakbergen003@gmail.com'
+    recipient_list = ['bauyrzanbakbergen87@gmail.com', 'abylaikhanbariev7@gmail.com']
 
-#     try:
-#         send_mail(subject, message, sender, recipient_list)
-#         return HttpResponse("Email sent successfully")
-#     except Exception as e:
-#         return HttpResponse(f"An error occurred: {str(e)}")
+    try:
+        send_mail(subject, message, sender, recipient_list)
+        return HttpResponse("Email sent successfully")
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {str(e)}")
 
 
 def showPage(request):
