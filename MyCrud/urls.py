@@ -15,7 +15,7 @@ urlpatterns = [
     path('appointment/', TemplateView.as_view(template_name='clinic-website-template/appointment.html'), name='appointment'),
     path('testimonial/', TemplateView.as_view(template_name='clinic-website-template/testimonial.html'), name='testimonial'),
     path('404/', TemplateView.as_view(template_name='clinic-website-template/404.html'), name='404'),
-
+    path('auth/',create_new_task, name='create_new_task' )
 
     # path('sendmail/', send_email, name='send_email'), appointment
     # path('send-email/', send_email_view, name='send_email'),

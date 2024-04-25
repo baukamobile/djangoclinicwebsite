@@ -30,7 +30,7 @@ def create_new_task(request):
         else:
             print(form.errors)
 
-    return render(request, 'wg_early_bird_template/index.html', context={
+    return render(request, 'clinic-website-template/auth.html', context={
         'task': blog,
         'form': form,
     })

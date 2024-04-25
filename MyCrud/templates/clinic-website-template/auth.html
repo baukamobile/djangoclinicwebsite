@@ -1,0 +1,5 @@
+{% load static %}
+
+<form>
+    {% csrf_token %} {% for i in blog %} {{i.title}} {{i.content}} {% endfor %}
+</form>
